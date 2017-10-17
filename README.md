@@ -1,8 +1,8 @@
 ## Microtags Wordpress Plugin ##
 
-**Micro-tags** is a WopdPress pluging that provides possibilities to represent official school data in form required by russian education ministery. The plugin adds special tags in the generated HTML-code.
+**Micro-tags** is a WopdPress plugin that provides possibilities to represent official school data in form required by Russian education ministry. The plugin adds special tags in the generated HTML-code.
 
-This pluging was tested with WordPress 4.8.1-4.8.2.
+This plugin was tested with WordPress 4.8.1-4.8.2.
 
 For its work the plugin uses the EasyUI jQuery framework and TinyMCE editor. 
 
