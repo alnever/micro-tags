@@ -7,16 +7,20 @@
     $i = 0;
     foreach($this->tags as $tag):
        if (!$this->is_parent($tag["id_tag"])):
+         $tag_type = $this->get_tag_type($tag["id_tag_type"]);
   ?>
     <tr class="<?php echo ($i%2 == 0 ? "nodd" : "odd"); ?>">
-      <td width="30%"><?php
-
-                  echo $tag["tag_caption"];
-          ?>
-      </td>
-      <td width="70%">
+      <?php if ($tag_type != "link") { ?>
+        <td width="30%"><?php
+                    echo $tag["tag_caption"];
+            ?>
+        </td>
+        <td width="70%">
+      <?php } else { ?>
+        <td width="100%" colspan="2">
+      <?php } ?>
         <?php
-          $tag_type = $this->get_tag_type($tag["id_tag_type"]);
+
           if ($tag_type == "text" && $tag["itemprop"] != "" && !$this->is_parent($tag["id_tag"])):
         ?>
           <span itemprop="<?php echo $tag["itemprop"]; ?>">
@@ -73,12 +77,17 @@
     <?php
       $i = 0;
       foreach($childs as $tag):
+        $tag_type = $this->get_tag_type($tag["id_tag_type"]);
     ?>
       <tr class="<?php echo ($i%2 == 0 ? "nodd" : "odd"); ?>">
+        <?php if ($tag_type !== "link") { ?>
         <td width="30%"><?php echo $tag["tag_caption"]; ?></td>
         <td width="70%">
+        <?php } else { ?>
+        <td width="100%" colspan="2">
+        <?php } ?>
           <?php
-            $tag_type = $this->get_tag_type($tag["id_tag_type"]);
+
             if ($tag_type == "text" && $tag["itemprop"] != "" && !$this->is_parent($tag["id_tag"])):
           ?>
             <span itemprop="<?php echo $tag["itemprop"]; ?>">
